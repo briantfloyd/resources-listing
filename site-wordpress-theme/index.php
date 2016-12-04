@@ -58,7 +58,14 @@
 										<a href="<?php echo get_post_meta( get_the_ID(), 'webaddress', true ); ?>"><?php the_title(); ?></a>
 									</p>
 									<p>
-										<?php the_tags( '<span class="listing-tag uppercase">', '</span> <span class="listing-tag uppercase">', '</span> ' ); ?>
+										<?php $posttags = get_the_tags();
+											if ( $posttags ) {
+												foreach( $posttags as $tag ) {
+													echo '<span class="listing-tag uppercase">' . $tag->name . '</span>'; 
+												}
+											}
+										?>
+
 										<a class="listing-update" href="">Report / Update</a>
 									</p>		
 								</div>
