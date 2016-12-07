@@ -25,4 +25,12 @@ add_action( 'wp_enqueue_scripts', 'add_theme_scripts' );
 
 add_theme_support( 'automatic-feed-links' );
 
+function get_tag_archive_link($tag_name) {
+    $tag = get_term_by('name', $tag_name, 'post_tag');
+    
+    if ($tag) {
+        return get_term_link( $tag->term_id );
+    }
+}
+
 ?>

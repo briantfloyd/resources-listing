@@ -4,35 +4,7 @@
 <?php get_header(); ?>
 
 	<body>
-		<!-- Navbar -->
-		<nav class="navbar navbar-default navbar-static-top">
-			<div class="container-fluid green-bg">
-				<div class="container">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand heavy uppercase" href="#">Resources</a>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="navbar-collapse-1">
-						<ul class="nav navbar-nav">
-							<!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
-							<li><a href="#"><span class="nav-links-underline">Assets</span></a></li>
-							<li><a href="#"><span class="nav-links-underline">Tools</span></a></li>
-							<li><a href="#"><span class="nav-links-underline">Documentation</span></a></li>
-							<li><a href="#tags"><span class="nav-links-underline">Tags</span></a></li>
-							<li class="navbar-right"><a href="#submit" class="btn btn-default navbar-btn heavy uppercase submit-button orange-bg">Submit resource</a></li>
-						</ul>
-					</div><!-- /.navbar-collapse -->
-				</div><!-- /.container -->
-			</div><!-- /.container-fluid -->
-		</nav> 
+<?php include('navbar.php'); ?>
 	
 		<!-- Title banner -->
 		<div class="container-fluid title-bg">
@@ -76,71 +48,73 @@
 						        <?php _e( 'Sorry, no posts match this criteria.', 'textdomain' ); ?>
 						<?php endif; ?>
 
-						<a href="#" class="btn btn-default btn-body heavy uppercase green-bg">More assets</a>
+						<a href="<?php echo get_tag_archive_link('assets'); ?>" class="btn btn-default btn-body heavy uppercase green-bg">More assets</a>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-4">
 						<h2 class="heavy uppercase">Tools</h2>
 				
-						<div class="listing-block">
-							<p>
-								<a href="">Bootstrap &middot; The world's most popular mobile-first and responsive front-end framework.</a>
-							</p>
-							<p>
-								<span class="listing-tag uppercase">bootstrap</span><a class="listing-update" href="">Report / Update</a>
-							</p>		
-						</div>
+						<?php $toolsquery = new WP_Query( array( 'tag' => 'tools', 'posts_per_page' => 5 )); ?>
 
-						<div class="listing-block">
-							<p>
-								<a href="">Adobe Color CC</a>
-							</p>
-							<p>
-								<span class="listing-tag uppercase">color</span><a class="listing-update" href="">Report / Update</a>
-							</p>		
-						</div>
+						<?php if ( $toolsquery->have_posts() ) : ?>
+						    <?php while ( $toolsquery->have_posts() ) : $toolsquery->the_post(); ?>
 
-						<div class="listing-block">
-							<p>
-								<a href="">ImageOptim — better Save for Web</a>
-							</p>
-							<p>
-								<span class="listing-tag uppercase">compression</span><a class="listing-update" href="">Report / Update</a>
-							</p>		
-						</div>
+								<div class="listing-block">
+									<p>
+										<a href="<?php echo get_post_meta( get_the_ID(), 'webaddress', true ); ?>"><?php the_title(); ?></a>
+									</p>
+									<p>
+										<?php $posttags = get_the_tags();
+											if ( $posttags ) {
+												foreach( $posttags as $tag ) {
+													echo '<span class="listing-tag uppercase">' . $tag->name . '</span>'; 
+												}
+											}
+										?>
+
+										<a class="listing-update" href="">Report / Update</a>
+									</p>		
+								</div>
+
+						    <?php endwhile; ?>
+						    <?php wp_reset_postdata(); ?>
+						    <?php else : ?>
+						        <?php _e( 'Sorry, no posts match this criteria.', 'textdomain' ); ?>
+						<?php endif; ?>
 					
-						<a href="#" class="btn btn-default btn-body heavy uppercase green-bg">More tools</a>
+						<a href="<?php echo get_tag_archive_link('tools'); ?>" class="btn btn-default btn-body heavy uppercase green-bg">More tools</a>
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-4">
 						<h2 class="heavy uppercase">Documentation</h2>
 				
-						<div class="listing-block">
-							<p>
-								<a href="">Access Technology | National Federation of the Blind</a>
-							</p>
-							<p>
-								<span class="listing-tag uppercase">accessibility</span><a class="listing-update" href="">Report / Update</a>
-							</p>		
-						</div>
+						<?php $documentationquery = new WP_Query( array( 'tag' => 'documentation', 'posts_per_page' => 5 )); ?>
 
-						<div class="listing-block">
-							<p>
-								<a href="">Designing Accessible Web Forms - American Foundation for the Blind</a>
-							</p>
-							<p>
-								<span class="listing-tag uppercase">web forms</span><a class="listing-update" href="">Report / Update</a>
-							</p>		
-						</div>
+						<?php if ( $documentationquery->have_posts() ) : ?>
+						    <?php while ( $documentationquery->have_posts() ) : $documentationquery->the_post(); ?>
 
-						<div class="listing-block">
-							<p>
-								<a href="">e-Books</a>
-							</p>
-							<p>
-								<span class="listing-tag uppercase">ux</span><a class="listing-update" href="">Report / Update</a>
-							</p>		
-						</div>
+								<div class="listing-block">
+									<p>
+										<a href="<?php echo get_post_meta( get_the_ID(), 'webaddress', true ); ?>"><?php the_title(); ?></a>
+									</p>
+									<p>
+										<?php $posttags = get_the_tags();
+											if ( $posttags ) {
+												foreach( $posttags as $tag ) {
+													echo '<span class="listing-tag uppercase">' . $tag->name . '</span>'; 
+												}
+											}
+										?>
 
-						<a href="#" class="btn btn-default btn-body heavy uppercase green-bg">More documentation</a>
+										<a class="listing-update" href="">Report / Update</a>
+									</p>		
+								</div>
+
+						    <?php endwhile; ?>
+						    <?php wp_reset_postdata(); ?>
+						    <?php else : ?>
+						        <?php _e( 'Sorry, no posts match this criteria.', 'textdomain' ); ?>
+						<?php endif; ?>
+
+						<a href="<?php echo get_tag_archive_link('documentation'); ?>" class="btn btn-default btn-body heavy uppercase green-bg">More documentation</a>
 					</div>
 				</div>
 			</div>
