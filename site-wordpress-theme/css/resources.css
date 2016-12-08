@@ -1,4 +1,8 @@
 /* General */
+body {
+    background-color: #B2CC14;
+}
+
 h1 {
     font-size: 36px;
     text-align: center;
@@ -95,6 +99,10 @@ select {
 
 .blue-bg {
 	background-color: #04859F;
+}
+
+.white-bg {
+	background-color: #fff;
 }
 
 .dark-gray-bg, 
