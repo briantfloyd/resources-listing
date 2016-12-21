@@ -263,6 +263,10 @@ a:hover .nav-links-underline {
 	.h1-small {
 		font-size: 48px;
 	}
+
+	.section-padding {
+		padding-bottom: 30px;
+	}
 }
 
 /*@media (min-width: 992px) { ... }

@@ -14,7 +14,7 @@
 		</div>
 	
 		<!-- Resource listing -->
-		<div class="container-fluid white-bg">
+		<div class="container-fluid white-bg section-padding">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
