@@ -5,12 +5,12 @@
 					<div class="row">
 						<div class="col-xs-6">
 							<ul class="list-inline">
-								<li class="active"><a href="">Resources Home</a></li>
-								<li><a href="">Assets</a></li>
-								<li><a href="">Tools</a></li>
-								<li><a href="">Documentation</a></li>
-								<li><a href="#tags">Tags</a></li>
-								<li><a href="#submit">Submit Resource</a></li>
+								<li class="active"><a href="/index.php">Resources Home</a></li>
+								<li><a href="/index.php/tag/assets/">Assets</a></li>
+								<li><a href="/index.php/tag/tools/">Tools</a></li>
+								<li><a href="/index.php/tag/documentation/">Documentation</a></li>
+								<li><a href="/index.php#tags">Tags</a></li>
+								<li><a href="/index.php#submit">Submit Resource</a></li>
 							</ul>
 						</div>
 						<div class="col-xs-6">
