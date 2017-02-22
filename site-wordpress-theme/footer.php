@@ -9,7 +9,7 @@
 								<li><a href="/index.php/tag/assets/">Assets</a></li>
 								<li><a href="/index.php/tag/tools/">Tools</a></li>
 								<li><a href="/index.php/tag/documentation/">Documentation</a></li>
-								<li><a href="/index.php#tags">Tags</a></li>
+								<li><a href="/index.php/tag-listing/">Tags</a></li>
 								<li><a href="/index.php#submit">Submit Resource</a></li>
 							</ul>
 						</div>

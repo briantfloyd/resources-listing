@@ -17,84 +17,60 @@
 		<div class="container-fluid white-bg section-padding">
 			<div class="container">
 				<div class="row">
-						<div class="col-xs-12">
-							<?php the_archive_title( '<h2 class="heavy uppercase">', '</h2>' ); ?>
-						</div>
+					<div class="col-xs-12">
+						<?php the_archive_title( '<h2 class="heavy uppercase">', '</h2>' ); ?>
+					</div>
 
-						<?php 
-						$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; 
-						
-						$tag_query_args = array(
-								'tag' => $tag,
-								'paged' => $paged
-								);
-						?>						
+					<?php 
+					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; 
+					
+					$tag_query_args = array(
+							'tag' => $tag,
+							'paged' => $paged
+							);
+					?>						
 
-						<?php $tag_query = new WP_Query( $tag_query_args ); ?>				
+					<?php $tag_query = new WP_Query( $tag_query_args ); ?>				
 
-						<?php  if ( $tag_query->have_posts() ) : ?>	
-						    <?php while ( $tag_query->have_posts() ) : $tag_query->the_post(); ?>
+					<?php  if ( $tag_query->have_posts() ) : ?>	
+					    <?php while ( $tag_query->have_posts() ) : $tag_query->the_post(); ?>
 
-								<div class="col-xs-12 col-sm-6 col-md-4">
-									<div class="listing-block">
-										<p>
-											<a href="<?php echo get_post_meta( get_the_ID(), 'webaddress', true ); ?>"><?php the_title(); ?></a>
-										</p>
-										<p>
-											<?php $posttags = get_the_tags();
-												if ( $posttags ) {
-													foreach( $posttags as $tag ) {
-														echo '<span class="listing-tag uppercase">' . $tag->name . '</span>'; 
-													}
+							<div class="col-xs-12 col-sm-6 col-md-4">
+								<div class="listing-block">
+									<p>
+										<a href="<?php echo get_post_meta( get_the_ID(), 'webaddress', true ); ?>"><?php the_title(); ?></a>
+									</p>
+									<p>
+										<?php $posttags = get_the_tags();
+											if ( $posttags ) {
+												foreach( $posttags as $tag ) {
+													echo '<span class="listing-tag uppercase">' . $tag->name . '</span>'; 
 												}
-											?>
+											}
+										?>
 
-											<a class="listing-update" href="">Report / Update</a>
-										</p>		
-									</div>
+										<a class="listing-update" href="">Report / Update</a>
+									</p>		
 								</div>
-
-						    <?php endwhile; ?>
-							
-							<div class="col-xs-12">
-								<?php previous_posts_link( '<< Previous' ); ?>
-								<?php next_posts_link( 'Next >>', $tag_query->max_num_pages ); ?>
 							</div>
 
-						    <?php wp_reset_postdata(); ?>
+					    <?php endwhile; ?>
+						
+						<div class="col-xs-12">
+							<?php previous_posts_link( '<< Previous' ); ?>
+							<?php next_posts_link( 'Next >>', $tag_query->max_num_pages ); ?>
+						</div>
 
-						    <?php else : ?>
-						        <?php _e( 'Sorry, no posts match this criteria.', 'textdomain' ); ?>
-						<?php endif; ?>
+					    <?php wp_reset_postdata(); ?>
+
+					    <?php else : ?>
+					        <?php _e( 'Sorry, no posts match this criteria.', 'textdomain' ); ?>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
 	
-		<!-- Tag listing -->
-		<div class="container-fluid blue-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<a name="tags"></a>
-						<h2 class="heavy uppercase white">Tags</h2>
-						
-						<?php $taglistargs = array(
-							'smallest'                  => 10, 
-							'largest'                   => 10,
-							'unit'                      => 'px', 
-							'number'                    => 30,  
-							'separator'                 => " | </li><li>",
-						); ?>
-
-						<ul class="list-inline tag-listing uppercase">
-							<li>
-								<?php wp_tag_cloud( $taglistargs ); ?>
-							</li>
-						</ul>	
-					</div>
-				</div>
-			</div>
-		</div>
+<?php include('tagcloud.php'); ?>
 
 <?php get_footer(); ?>
 

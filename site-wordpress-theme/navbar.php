@@ -20,7 +20,7 @@
 							<li><a href="/index.php/tag/assets/"><span class="nav-links-underline">Assets</span></a></li>
 							<li><a href="/index.php/tag/tools/"><span class="nav-links-underline">Tools</span></a></li>
 							<li><a href="/index.php/tag/documentation/"><span class="nav-links-underline">Documentation</span></a></li>
-							<li><a href="/index.php#tags"><span class="nav-links-underline">Tags</span></a></li>
+							<li><a href="/index.php/tag-listing/"><span class="nav-links-underline">Tags</span></a></li>
 							<li class="navbar-right"><a href="/index.php#submit" class="btn btn-default navbar-btn heavy uppercase submit-button orange-bg">Submit resource</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->

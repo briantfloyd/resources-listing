@@ -225,19 +225,42 @@ a:hover .nav-links-underline {
 /* Tag listings */
 .tag-listing {
 	font-size: 10px;
-	color: #4A4A4A;
 	line-height: 30px;
 }
 
 .tag-listing a {
-	color: #fff;
 	border-bottom: 1px dotted;
-	border-color: #fff;
 	text-decoration: none;
 	margin-right: 10px;
 }
 
 .tag-listing a:hover {
+}
+
+.tag-listing-blue-bg {
+	color: #4A4A4A;
+}
+
+.tag-listing-blue-bg a {
+	color: #fff;
+	border-color: #fff;
+}
+
+.tag-listing-blue-bg a:hover {
+	color: #ccc;
+	border-color: #ccc;
+}
+
+.tag-listing-white-bg {
+	color: #4A4A4A;
+}
+
+.tag-listing-white-bg a {
+	color: #fff;
+	border-color: #fff;
+}
+
+.tag-listing-white-bg a:hover {
 	color: #ccc;
 	border-color: #ccc;
 }

@@ -18,15 +18,27 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
-						<h2 class="heavy uppercase">Page cannot be found.</h2>
+						<h2 class="heavy uppercase">All tags</h2>
 
-						<p>I'm sorry! It looks like something may have moved or be missing.</p>
+						<?php $taglistargs = array(
+							'smallest'                  => 10, 
+							'largest'                   => 10,
+							'unit'                      => 'px', 
+							'number'                    => 0,  
+							'separator'                 => " | </li><li>",
+						); ?>
+
+						<ul class="list-inline tag-listing uppercase">
+							<li>
+								<?php wp_tag_cloud( $taglistargs ); ?>
+							</li>
+						</ul>	
+
 					</div>
+
 				</div>
 			</div>
 		</div>
-	
-<?php include('tagcloud.php'); ?>
 
 <?php get_footer(); ?>
 
