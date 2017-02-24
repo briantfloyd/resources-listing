@@ -21,14 +21,14 @@
 						<h2 class="heavy uppercase">All tags</h2>
 
 						<?php $taglistargs = array(
-							'smallest'                  => 10, 
-							'largest'                   => 10,
+							'smallest'                  => 14, 
+							'largest'                   => 14,
 							'unit'                      => 'px', 
 							'number'                    => 0,  
 							'separator'                 => " | </li><li>",
 						); ?>
 
-						<ul class="list-inline tag-listing uppercase">
+						<ul class="list-inline tag-listing text-capitalize">
 							<li>
 								<?php wp_tag_cloud( $taglistargs ); ?>
 							</li>

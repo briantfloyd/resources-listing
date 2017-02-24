@@ -226,6 +226,7 @@ a:hover .nav-links-underline {
 .tag-listing {
 	font-size: 10px;
 	line-height: 30px;
+	color: #ccc;
 }
 
 .tag-listing a {
@@ -247,20 +248,6 @@ a:hover .nav-links-underline {
 }
 
 .tag-listing-blue-bg a:hover {
-	color: #ccc;
-	border-color: #ccc;
-}
-
-.tag-listing-white-bg {
-	color: #4A4A4A;
-}
-
-.tag-listing-white-bg a {
-	color: #fff;
-	border-color: #fff;
-}
-
-.tag-listing-white-bg a:hover {
 	color: #ccc;
 	border-color: #ccc;
 }
