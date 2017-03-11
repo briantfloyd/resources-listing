@@ -20,25 +20,43 @@
 					<div class="col-xs-12">
 						<h2 class="heavy uppercase">All tags</h2>
 
-						<?php $taglistargs = array(
-							'smallest'                  => 14, 
-							'largest'                   => 14,
-							'unit'                      => 'px', 
-							'number'                    => 0,  
-							'separator'                 => " | </li><li>",
-						); ?>
-
 						<ul class="list-inline tag-listing text-capitalize">
-							<li>
-								<?php wp_tag_cloud( $taglistargs ); ?>
-							</li>
-						</ul>	
+							
+							<?php $taglistarrayargs = array(
+									'smallest'                  => 14, 
+									'largest'                   => 14,
+									'unit'                      => 'px', 
+									'number'                    => 0,  
+									'separator'                 => ' | </li><li>',
+									'format'					=> 'array'
+								);
+
+								$tags = wp_tag_cloud( $taglistarrayargs );
+
+								$tag_total = sizeof( $tags );
+
+							 	for ( $tag = 0; $tag < $tag_total; $tag++ ) {
+
+									$args = array(
+										'tag' => strip_tags( $tags[$tag] )
+									);
+
+									$num = count( get_posts( $args ) );	
+
+									echo '<li>' . $tags[$tag] . ' ' . $num . '</li>';
+							 	}
+							
+							?>
+
+						</ul>
 
 					</div>
 
 				</div>
 			</div>
 		</div>
+
+<?php include('tagcloud.php'); ?>
 
 <?php get_footer(); ?>
 
