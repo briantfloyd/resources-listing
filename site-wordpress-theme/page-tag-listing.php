@@ -27,7 +27,6 @@
 									'largest'                   => 14,
 									'unit'                      => 'px', 
 									'number'                    => 0,  
-									'separator'                 => ' | </li><li>',
 									'format'					=> 'array'
 								);
 
@@ -38,12 +37,14 @@
 							 	for ( $tag = 0; $tag < $tag_total; $tag++ ) {
 
 									$args = array(
-										'tag' => strip_tags( $tags[$tag] )
+										'tag' => str_replace( ' ', '-', strip_tags( $tags[$tag] ) )
 									);
 
 									$num = count( get_posts( $args ) );	
 
-									echo '<li>' . $tags[$tag] . ' ' . $num . '</li>';
+									echo '<li>' . $tags[$tag] . '<span class="tag-listing-total">' . $num . '</span>';
+
+									echo ( $tag < $tag_total - 1 ) ? ' | </li>' : '</li>';
 							 	}
 							
 							?>
