@@ -18,7 +18,7 @@
 								<?php wp_tag_cloud( $taglistargs ); ?>
 							</li>
 							<li>
-								<a href="/index.php/tag-listing/"><strong>All tags >></strong></a>
+								<a href="/resources/tag-listing/"><strong>All tags >></strong></a>
 							</li>
 						</ul>	
 					</div>
